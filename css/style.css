@@ -1,0 +1,656 @@
+/* style.css */
+
+header {
+	justify-content: space-between;
+	position: absolute;
+	z-index: 5;
+	width: 100%;
+	background: linear-gradient(180deg, black, transparent);
+	border: none;
+}
+
+.info h4 {
+	line-height: 1.5em;
+	height: 1em;
+	justify-content: start;
+	text-overflow: ellipsis;
+}
+
+.logo {
+	background: linear-gradient(to right, #e0e0e0 75%, crimson 75%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.logo img {
+	filter: invert(0);
+}
+
+.hamburger-menu {
+	display: block;
+	padding: 8px 12px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	font-size: larger;
+	-webkit-text-fill-color: #e0e0e0 !important;
+}
+
+.hamburger-menu:hover {
+	-webkit-text-fill-color: var(--hover-color) !important;
+}
+
+/* Header layout */
+.site-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 20px;
+	z-index: 100;
+	background: linear-gradient(180deg, black, transparent);
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	font-size: 24px;
+	color: #e0e0e0;
+	position: relative;
+	z-index: 110;
+}
+
+/* Dropdown Menu */
+.hamburger-dropdown {
+	display: none;
+	position: absolute;
+	top: 65px;
+	left: 10px;
+	background-color: var(--background-color);
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+	z-index: 200;
+	min-width: 180px;
+	padding: 10px 5px;
+	min-height: 400px;
+}
+
+/* Open State */
+.hamburger-dropdown.open {
+	display: block;
+}
+
+/* Dropdown Buttons */
+.hamburger-dropdown button,
+.hamburger-dropdown .import-btn {
+	display: block;
+	width: 100%;
+	background: transparent;
+	border: none;
+	color: var(--text-color);
+	padding: 10px 20px;
+	text-align: left;
+	cursor: pointer;
+	font-size: 16px;
+	transition: background 0.3s, color 0.3s;
+}
+
+/* Hover Effects */
+.hamburger-dropdown button:hover,
+.hamburger-dropdown .import-btn:hover {
+	background-color: var(--hover-color);
+	color: var(--button-color);
+}
+
+/* Prevent dropdown from shifting layout */
+.hamburger-menu {
+	position: relative;
+	z-index: 110;
+}
+
+.dropdown-item {
+	padding: 10px 20px;
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 40px;
+	height: 20px;
+}
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	transition: .4s;
+	border-radius: 20px;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 16px;
+	width: 16px;
+	left: 2px;
+	bottom: 2px;
+	background-color: white;
+	transition: .4s;
+	border-radius: 50%;
+}
+
+input:checked+.slider {
+	background-color: #4CAF50;
+}
+
+input:checked+.slider:before {
+	transform: translateX(20px);
+}
+
+#filterBtn {
+	border-radius: 4px 0 0 4px;
+	color: #e0e0e0;
+}
+
+.toggle-container {
+	display: flex;
+}
+
+.toggle-btn {
+	padding: 10px 15px;
+	margin: 0;
+	background: var(--dark-accent-color);
+	border: none;
+	color: #e0e0e0;
+	cursor: pointer;
+	transition: background 0.3s;
+	font-size: x-large;
+	width: 80px;
+	text-align: center;
+}
+
+.toggle-btn[data-type="movie"] {
+	border-radius: 20px 0 0 20px;
+}
+
+.toggle-btn[data-type="tv"] {
+	border-radius: 0 20px 20px 0;
+}
+
+.toggle-btn.active {
+	background: var(--hover-color);
+}
+
+.toggle-btn:hover {
+	background: var(--hover-color);
+}
+
+/* Main Section Toggle (only one active) */
+.main-section {
+	position: relative;
+	display: none;
+	padding: 0px 50px 30px 50px;
+	min-height: 1000px;
+}
+
+.main-section.active {
+	display: flex;
+}
+
+#moviesSection,
+#tvSection {
+	flex-direction: row;
+}
+
+/* Grid Section */
+.section {
+	margin-bottom: 20px;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.section h1 {
+	margin: 10px;
+	text-align: center;
+	color: var(--text-color);
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(var(--media-card-width), 1fr));
+	grid-gap: 20px;
+}
+
+/* Sub–Tabs */
+.sub-tabs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	transition: all 0.3s;
+	flex-direction: column;
+	padding-top: 80px;
+	width: 210px;
+}
+
+.sub-tab-btn {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	/* Fixed 'anchor-center' typo */
+	text-align: right;
+	background: transparent;
+	border: none;
+	color: var(--text-color);
+	cursor: pointer;
+	transition: background 0.3s, transform 0.3s ease;
+	width: 210px;
+	height: 40px;
+	font-size: 14px;
+	margin-right: 0px;
+	padding: 0px 10px;
+	gap: 20px;
+	box-sizing: border-box;
+	position: relative;
+	/* Needed for pseudo-elements */
+	overflow: hidden;
+}
+
+/* Icons and text styling */
+.sub-tab-btn i {
+	font-size: 20px;
+	filter: drop-shadow(0px 0px 2px gray);
+}
+
+.sub-tab-btn img {
+	width: auto;
+	height: 20px;
+	filter: var(--img-filter);
+}
+
+.sub-tab-btn p {
+	font-size: 16px;
+}
+
+/* Pseudo-elements for border drawing */
+.sub-tab-btn::before,
+.sub-tab-btn::after {
+	content: '';
+	position: absolute;
+	background: var(--accent-color);
+	height: 2px;
+	width: 100%;
+	transition: transform 0.4s ease;
+	will-change: transform;
+	/* Optimize rendering */
+	transform: scaleX(0) translateZ(0);
+	/* Force GPU acceleration */
+}
+
+/* Top border: left to right */
+.sub-tab-btn::before {
+	height: 1.5px;
+	width: 100%;
+	top: 0;
+	left: 0;
+	transform: scaleX(0);
+	/* Hidden initially */
+	transform-origin: left;
+	/* Draw from left to right */
+}
+
+/* Bottom border: right to left */
+.sub-tab-btn::after {
+	height: 2px;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	transform: scaleX(0);
+	/* Hidden initially */
+	transform-origin: left;
+	/* Draw from right to left */
+}
+
+/* Hover or Active state triggers the draw effect */
+.sub-tab-btn.active::before,
+.sub-tab-btn:hover::before {
+	transform: scaleX(1);
+	/* Draw top border */
+}
+
+.sub-tab-btn.active::after,
+.sub-tab-btn:hover::after {
+	transform: scaleX(1);
+	/* Draw bottom border */
+}
+
+/* Color change and scaling on active/hover */
+.sub-tab-btn.active,
+.sub-tab-btn:hover {
+	color: var(--text-color);
+	transform: scale(1.1);
+}
+
+/* Sub-content container: fixed height with scroll for infinite loading */
+
+.sub-content {
+	min-height: 600px;
+	flex: 2;
+	padding-left: 50px;
+}
+
+.sub-content::-webkit-scrollbar {
+	width: 8px;
+}
+
+.sub-content::-webkit-scrollbar-thumb {
+	background: #444;
+	border-radius: 4px;
+}
+
+/* Random Movie */
+.random-item-modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.9);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 9999;
+	overflow: auto;
+}
+
+.random-item-modal .modal-content {
+	position: relative;
+	background-size: cover;
+	background-position: center;
+	padding: 30px;
+	border-radius: 10px;
+	color: #fff;
+	max-width: 700px;
+	width: 90%;
+	text-align: left;
+	box-shadow: 1px 2px 20px rgba(150, 150, 150, 1);
+	overflow: hidden;
+	border: solid 2px crimson;
+}
+
+.random-item-modal .modal-content::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+	z-index: 0;
+}
+
+.random-item-modal .modal-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	z-index: 1;
+}
+
+.random-item-modal h2,
+.random-item-modal h4,
+.random-item-modal p,
+.random-item-modal .overview,
+.random-item-modal .go-to-details,
+.random-item-modal .close-btn {
+	position: relative;
+	z-index: 2;
+}
+
+.random-item-modal h2,
+.random-item-modal h4 {
+	margin-bottom: 5px;
+}
+
+.random-item-modal .icon-info {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	font-size: small;
+}
+
+.random-item-modal .overview {
+	margin-top: 5px;
+	line-height: 1.6;
+	text-align: justify;
+}
+
+.random-item-modal .close-btn {
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	font-size: 28px;
+	cursor: pointer;
+}
+
+.random-item-modal .go-to-details {
+	background: crimson;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 20px;
+	font-size: 16px;
+}
+
+.random-item-btn {
+	background: crimson;
+	color: #fff;
+	border: none;
+	padding: 1px 10px 3px 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	margin: auto;
+	font-size: 20px;
+	margin-bottom: 15px;
+}
+
+.live-tv {
+	margin-right: 20px;
+	filter: hue-rotate(120deg);
+	cursor: pointer;
+}
+
+.live-tv:hover {
+	filter: hue-rotate(90deg);
+}
+
+@media (max-width: 768px) {
+
+	/* 1) Header: Ensure it's not absolute and doesn't overlap carousel */
+	header.site-header,
+	header {
+		position: relative !important;
+		/* override any absolute positioning */
+		z-index: 10;
+		flex-direction: column;
+		align-items: center;
+		padding: 10px 5px;
+	}
+
+	.site-header .logo,
+	header .logo {
+		margin: 5px 0;
+		font-size: 1.4em;
+	}
+
+	.search-container {
+		width: 95%;
+		margin: 5px auto;
+	}
+
+	.person-card {
+		zoom: 0.6 !important;
+	}
+
+	.toggle-container {
+		display: flex;
+		justify-content: center;
+		margin: 5px 0;
+	}
+
+	.close-btn {
+		right: 10px !important;
+	}
+
+	.toggle-btn {
+		font-size: 1em;
+		padding: 5px 10px;
+		margin: 0 3px;
+	}
+
+	/* 2) Carousel: Not hidden under header & bigger images */
+	.carousel-section {
+		margin-top: 10px;
+		/* ensures it’s below header */
+		margin-bottom: 15px;
+		height: auto !important;
+	}
+
+	#carouselContainer {
+		height: 280px;
+		/* more vertical space for images */
+	}
+
+	.carousel-slide {
+		background-size: cover;
+		background-position: center;
+	}
+
+	/* Smaller arrows & indicator */
+	.carousel-arrows button {
+		font-size: 1em;
+		padding: 5px 10px;
+		margin: 0 5px;
+	}
+
+	#circleIndicator {
+		width: 0;
+		height: auto;
+		top: 40% !important;
+		left: 40% !important;
+	}
+
+	.carousel-indicators {
+		gap: 2px !important;
+	}
+
+	.carousel-indicators .indicator {
+		width: 9px !important;
+		height: 7px !important;
+	}
+
+	.carousel-info-overlay {
+		font-size: 0.85em;
+		padding: 10px !important;
+		bottom: 20px !important;
+	}
+
+	.carousel-info-overlay h4 {
+		font-size: 1em;
+		margin-bottom: 5px;
+	}
+
+	.carousel-metadata {
+		font-size: 0.8em;
+	}
+
+	.carousel-container .trailer-iframe {
+		height: 100% !important;
+		width: 100% !important;
+		top: 0 !important;
+	}
+
+	/* Progress Section */
+	.tv-progress-card,
+	.movie-progress-card {
+		zoom: 0.75;
+	}
+
+	/* 3) Sub Tabs: Vertical stack, above results */
+	.sub-tabs {
+		align-items: center;
+		gap: 6px !important;
+		margin: 10px 0;
+		padding: 0 !important;
+		width: 100% !important;
+		flex-direction: row !important;
+		justify-content: center;
+	}
+
+	.sub-tab-btn {
+		width: 40px !important;
+		font-size: 0.9em !important;
+		padding: 8px !important;
+		text-align: center !important;
+	}
+
+	.sub-tab-btn i,
+	.sub-tab-btn img {
+		width: 20px;
+		height: 20px;
+		margin-right: 4px;
+	}
+
+	.sub-content {
+		padding: 0 !important;
+	}
+
+	/* 4) Section Headings */
+	.main-section {
+		margin: 10px 0;
+		padding: 0 5px;
+		flex-direction: column !important;
+	}
+
+	.section h1 {
+		text-align: center;
+		font-size: 1.2em;
+		margin-bottom: 10px;
+	}
+
+	/* 5) (Optional) Two-Column Results */
+	.grid-container {
+		grid-template-columns: 1fr 1fr !important;
+		gap: 10px !important;
+		justify-items: center;
+	}
+
+	/* 6) Buttons (Random, Load More) */
+	.random-item-btn {
+		display: block;
+		margin: 0 auto 10px;
+		font-size: 1em;
+		padding: 8px 12px;
+	}
+}

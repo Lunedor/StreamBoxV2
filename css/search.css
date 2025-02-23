@@ -1,0 +1,147 @@
+/* search.css */
+
+#searchBtn {
+	color: #e0e0e0;
+}
+
+.search-results-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+	width: 100%;
+	justify-content: center;
+}
+
+.search-container {
+	flex: 1;
+	display: flex;
+	max-width: 600px;
+	margin: 10px;
+}
+
+.search-container input {
+	flex: 1;
+	padding: 10px;
+	border: none;
+	font-size: 1em;
+}
+
+.search-container button {
+	padding: 10px;
+	border: none;
+	background: var(--hover-color);
+	color: var(--button-color);
+	border-radius: 0 4px 4px 0;
+	cursor: pointer;
+	width: 70px;
+}
+
+/* Modal (Search) */
+.modal {
+	position: fixed;
+	top: 70px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(20, 20, 20, 0.95);
+	padding: 20px;
+	overflow-y: auto;
+	z-index: 1000;
+}
+
+.modal.hidden {
+	display: none;
+}
+
+.modal-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 15px;
+}
+
+.close-btn {
+	background: transparent;
+	border: none;
+	color: #e50914;
+	font-size: 1.75em;
+	cursor: pointer;
+	position: fixed;
+	bottom: 20px;
+	right: 40px;
+}
+
+.modal-tabs {
+	display: flex;
+	margin-bottom: 15px;
+}
+
+.modal-tab-btn {
+	flex: 1;
+	padding: 10px;
+	background: #333;
+	border: none;
+	color: #e0e0e0;
+	cursor: pointer;
+	transition: background 0.3s;
+}
+
+.modal-tab-btn.active,
+.modal-tab-btn:hover {
+	background: var(--hover-color);
+	color: var(--button-color);
+}
+
+.modal-content {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	width: 90%;
+}
+
+.modal-tab-content {
+	display: none;
+}
+
+.modal-tab-content.active {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+	width: 100%;
+	justify-content: center;
+}
+
+
+.person-card {
+	width: 120px;
+	height: 240px;
+	margin: 10px;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: var(--card-border-radius);
+	overflow: hidden;
+	transition: transform 0.3s;
+}
+
+.person-card:hover {
+	transform: scale(1.03);
+}
+
+.person-card img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	border-radius: 50%;
+	border: solid 3px var(--text-color);
+}
+
+.person-name {
+	padding: 8px;
+	text-align: center;
+	font-size: 0.85em;
+	color: var(--text-color);
+	background: #141414;
+	width: 100%;
+}

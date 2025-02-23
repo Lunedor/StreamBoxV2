@@ -1,0 +1,396 @@
+/* common.jss */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+	--background-color: #1b1b1b;
+	--text-color: #e0e0e0;
+	--secondary-text-color: #B0B0B0;
+	--accent-color: #888888;
+	--dark-accent-color: #202020;
+	--hover-color: crimson;
+	--button-color: #ccc;
+	--scrollbar-thumb: #606060;
+	--scrollbar-track: #202020;
+	--card-border-radius: 5px 5px 0 0;
+	--button-border-radius: 30px;
+	--border-color: #333;
+	--media-card-width: 180px;
+	--media-card-height: 300px;
+	--img-filter: invert(0.8) drop-shadow(0px 0px 3px black);
+	--img-mask-img: linear-gradient(to bottom, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0));
+	--logo-filter: invert(0);
+	--primary-font: 'Roboto', sans-serif;
+	--heading-font: 'Roboto Slab', serif;
+	--base-font-size: 16px;
+}
+
+/*  --------------------
+    Scrollbar Styles (Cross-browser)
+    --------------------
+*/
+
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+	width: 12px;
+	/* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+	background: var(--scrollbar-track);
+	/* Background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--scrollbar-thumb);
+	/* Color of the scrollbar thumb */
+	border-radius: 10px;
+	/* Rounded corners for the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+	/* Color of the scrollbar thumb on hover */
+}
+
+/* For Firefox */
+* {
+	scrollbar-width: auto;
+	/* Width of the scrollbar */
+	scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+	/* Color of the scrollbar thumb and track */
+}
+
+/*For IE and Edge*/
+* {
+	-ms-overflow-style: none;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.horizontal-scroll.active-drag {
+	cursor: grabbing;
+	/* Change cursor to indicate dragging */
+	scroll-behavior: auto;
+	/* Disable smooth scrolling during drag */
+}
+
+.horizontal-scroll {
+	cursor: grab;
+	/* Default cursor */
+	overflow-x: auto;
+	/* Ensure horizontal scrolling */
+	-webkit-overflow-scrolling: touch;
+	/* For smooth scrolling on iOS */
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: var(--primary-font);
+	font-size: var(--base-font-size);
+	line-height: 1.6;
+	background: var(--background-color);
+	color: var(--text-color);
+}
+
+/* Header */
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 15px 20px;
+	border-bottom: 1px solid var(--dark-accent-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--heading-font);
+	margin-bottom: 0.5em;
+	line-height: 1.2;
+}
+
+.home-btn {
+	color: var(--text-color);
+	background-color: transparent;
+	font-size: x-large;
+	border: none;
+	cursor: pointer;
+}
+
+#goTopBtn {
+	display: none;
+	/* Hidden by default */
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	z-index: 99;
+	font-size: 18px;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	color: var(--text-color);
+	cursor: pointer;
+	padding: 10px;
+	border-radius: 50%;
+	opacity: 0.7;
+	transition: opacity 0.3s;
+	font-size: xxx-large;
+	filter: drop-shadow(2px 4px 6px black);
+}
+
+#goTopBtn:hover {
+	opacity: 1;
+}
+
+.back-btn {
+	font-size: x-large;
+	background: transparent;
+	border: none;
+	color: var(--text-color);
+	cursor: pointer;
+}
+
+.logo {
+	display: flex;
+	font-size: x-large;
+	font-weight: bold;
+	/* color: var(--text-color);*/
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	font-family: "Saira", serif;
+	background: linear-gradient(to right, var(--text-color) 75%, crimson 75%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.logo img {
+	width: 40px;
+	height: 40px;
+	filter: var(--logo-filter);
+}
+
+/* Media Card: fixed size for consistency */
+.media-card {
+	width: var(--media-card-width);
+	height: var(--media-card-height);
+	background: #222;
+	border-radius: var(--card-border-radius);
+	overflow: hidden;
+	position: relative;
+	cursor: pointer;
+	transition: transform 0.3s;
+	display: flex;
+	flex-direction: column;
+	border: solid 1px #1b1b1b;
+}
+
+.media-card img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.media-card .info {
+	flex: 1;
+	padding: 5px;
+	text-align: center;
+	font-size: 0.9em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.media-title-overlay {
+	position: absolute;
+	top: -5px;
+	left: 0;
+	width: 102%;
+	height: 93%;
+	background-color: rgba(0, 0, 0, 0.3);
+	color: #e0e0e0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	cursor: pointer;
+	text-align: center;
+	border-radius: var(--card-border-radius);
+	font-weight: 400;
+	text-shadow: 2px 2px 3px darkgray;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.media-title-overlay:hover {
+	opacity: 1;
+	backdrop-filter: blur(3px);
+}
+
+.media-title-overlay .rating-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 5px;
+	position: absolute;
+	bottom: 15px;
+}
+
+.media-title-overlay .rating-stars {
+	font-size: medium;
+	display: flex;
+	/* display star icons in a row */
+	gap: 2px;
+	/* Space between star icons */
+}
+
+.media-title-overlay .rating-stars i {
+	color: gold;
+	text-shadow: 1px 1px 2px #000;
+	margin-top: 5px;
+}
+
+.media-title-overlay .rating-text {
+	font-size: medium;
+	margin-top: 3px;
+	color: #e0e0e0;
+}
+
+.media-title-overlay .movie-title {
+	margin: 15px;
+}
+
+.card-actions {
+	display: flex;
+	justify-content: space-between;
+	padding: 5px 10px;
+	background: var(--background-color);
+	height: 30px;
+}
+
+.card-actions button {
+	background: transparent;
+	border: none;
+	font-size: 1.2em;
+	color: var(--button-color);
+	cursor: pointer;
+	transition: color 0.3s;
+}
+
+.card-actions button:hover {
+	color: var(--hover-color);
+}
+
+/* Horizontal Media Lists */
+.horizontal-scroll {
+	display: grid;
+	grid-auto-flow: column;
+	gap: 20px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	padding: 20px;
+	justify-content: flex-start;
+}
+
+.load-more-btn {
+	background-color: transparent;
+	border: 3px solid var(--hover-color);
+	color: var(--text-color);
+	padding: 14px 40px;
+	border-radius: var(--button-border-radius);
+	font-weight: 600;
+	transition: all 0.3s;
+	cursor: pointer;
+	font-size: medium;
+	z-index: 100;
+	position: relative;
+	margin-top: 10px;
+}
+
+.load-more-btn:hover {
+	color: #e0e0e0;
+	transform: scale(1.02);
+	background-color: var(--hover-color);
+}
+
+.reset-progress-btn {
+	display: block;
+	padding: 8px 12px;
+	border: none;
+	background-color: transparent;
+	color: #e50914;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	font-size: larger;
+	visibility: hidden;
+}
+
+.reset-progress-btn:hover {
+	color: var(--text-color);
+}
+
+/* --------------------------------------------- */
+/* MOBILE STYLES for index.html (max-width:768px)*/
+/* --------------------------------------------- */
+@media (max-width: 768px) {
+
+	.media-card {
+		margin: 0 auto 15px;
+		height: auto;
+		zoom: 0.8;
+	}
+
+	.media-card img {
+		width: 100%;
+		height: auto;
+	}
+
+	.media-title-overlay {
+		font-size: 0.9em;
+		text-align: center;
+	}
+
+	.movie-title {
+		font-size: 1em;
+		margin: 8px 0;
+	}
+
+	.rating-stars i {
+		font-size: 0.8em;
+	}
+
+	.card-actions {
+		height: 35px;
+	}
+
+	.card-actions button {
+		font-size: 1.2em;
+		padding: 0 5px;
+	}
+
+	.load-more-btn {
+		width: auto;
+		padding: 10px 20px;
+		font-size: 1em;
+		margin: 10px auto;
+	}
+
+	/* 7) Go-to-Top Button */
+	#goTopBtn {
+		bottom: 15px;
+		right: 15px;
+		font-size: 2em;
+		width: auto;
+		height: auto;
+	}
+}

@@ -1,0 +1,378 @@
+/* filter.css */
+
+main#filterMain {
+	max-width: 1400px;
+	margin: 20px auto;
+	padding: 0 20px;
+}
+
+main#filterMain h1 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+/* --- Main Filter Bar --- */
+.filter-bar {
+	display: flex;
+	flex-direction: column;
+	/* Wrap on smaller screens */
+	align-items: center;
+	justify-content: space-evenly;
+	/* Space out items */
+	gap: 10px;
+	padding: 15px;
+	background-color: var(--background-color);
+	border-radius: 8px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+	margin-bottom: 20px;
+}
+
+.top-menu {
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+}
+
+/* --- Individual Filter Items --- */
+.filter-item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	/* Space between icon and input */
+}
+
+.filter-item i {
+	color: var(--secondary-text-color);
+	font-size: 1.2em;
+	/* Slightly larger icons */
+}
+
+/* --- Input Fields --- */
+.filter-item input[type="number"] {
+	padding: 8px;
+	border: 1px solid var(--border-color);
+	border-radius: 4px;
+	background-color: var(--border-color);
+	color: var(--text-color);
+	font-size: 0.9rem;
+	width: 70px;
+	/* Fixed width for number inputs */
+	appearance: textfield;
+	/* Remove default number input arrows (for now) */
+}
+
+/* --- Custom Number Input Arrows (using pseudo-elements) --- */
+.filter-item input[type="number"]::-webkit-inner-spin-button,
+.filter-item input[type="number"]::-webkit-outer-spin-button {
+	opacity: 0;
+	/* Hide default arrows */
+}
+
+.filter-item input[type="number"] {
+	position: relative;
+	/* For positioning pseudo-elements */
+}
+
+/* --- Range Group (Year and Vote) --- */
+.range-group {
+	border: 1px solid var(--border-color);
+	border-radius: 4px;
+	padding: 2px 8px 2px 2px;
+}
+
+.range-separator {
+	color: var(--secondary-text-color);
+	margin: 0 4px;
+	/* Smaller margin */
+}
+
+/* --- Genre Chips Container --- */
+.genre-chips-container {
+	display: flex;
+	flex-grow: 1;
+	/* Allow genre chips to take available space */
+	justify-content: flex-start;
+	/* Align to the left */
+}
+
+#genreSelection {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	justify-content: center;
+	width: 600px;
+}
+
+.genre-chip {
+	background-color: var(--border-color);
+	color: var(--text-color);
+	border: 1px solid var(--border-color);
+	border-radius: 30px;
+	/* Smaller radius */
+	padding: 10px;
+	cursor: pointer;
+	transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+	font-size: 0.85rem;
+	white-space: nowrap;
+	/* Prevent text wrapping within a chip */
+	min-width: 80px;
+
+}
+
+.genre-chip:hover {
+	background-color: var(--hover-color);
+	color: var(--button-color);
+
+}
+
+.genre-chip.selected {
+	background-color: var(--hover-color);
+	color: var(--button-color);
+	border-color: var(--text-color);
+}
+
+/* --- Apply Filters Button --- */
+.filter-btn {
+	background-color: var(--hover-color);
+	color: #e0e0e0;
+	border: none;
+	border-radius: 8px;
+	/* Circular button */
+	padding: 10px;
+	/* Adjust padding for size */
+	cursor: pointer;
+	transition: background-color 0.2s, transform 0.2s;
+	display: flex;
+	/* Center the icon */
+	align-items: center;
+	justify-content: center;
+	font-size: 1.2rem;
+	line-height: 1;
+	/* Ensure icon is vertically centered */
+	width: 120px;
+}
+
+.filter-btn:hover {
+	transform: scale(1.05);
+	/* Slightly larger on hover */
+}
+
+/* --- Results & Other Sections (same as before, or adjust as needed) --- */
+#filterResults {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+	gap: 20px;
+	padding-bottom: 20px;
+}
+
+#filterResults p {
+	grid-column: 1 / -1;
+	text-align: center;
+	font-size: 1.2em;
+	padding: 20px;
+}
+
+.button-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+/* Number Input Container */
+.range-group {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.number-input {
+	display: flex;
+	align-items: center;
+	position: relative;
+	width: 80px;
+	/* Boyutu ayarla */
+}
+
+.number-input input {
+	width: 100%;
+	text-align: center;
+	padding: 8px 30px;
+	border: 1px solid var(--border-color);
+	border-radius: 4px;
+	background-color: var(--border-color);
+	color: var(--text-color);
+	font-size: 0.9rem;
+	appearance: textfield;
+}
+
+.number-input button {
+	position: absolute;
+	width: 20px;
+	height: 47%;
+	border: none;
+	background: var(--border-color);
+	color: var(--text-color);
+	cursor: pointer;
+	font-size: 0.8rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background 0.2s;
+	filter: drop-shadow(2px 4px 6px black);
+}
+
+.number-input .plus {
+	top: 0;
+	right: 3px;
+	border-radius: 0 4px 0 0;
+}
+
+.number-input .minus {
+	bottom: 0;
+	right: 3px;
+	border-radius: 0 0 4px 0;
+}
+
+.number-input button:hover {
+	background: var(--hover-color);
+}
+
+/* --- Dropdown with Custom Buttons --- */
+.dropdown-wrapper {
+	position: relative;
+	display: flex;
+	/* Use flexbox for layout */
+	align-items: center;
+	/* Vertically center */
+	width: auto;
+	/* Adjust as needed */
+}
+
+.dropdown-wrapper select {
+	padding: 8px 30px 8px 8px;
+	/* Space for buttons */
+	border: 1px solid var(--border-color);
+	border-radius: 4px;
+	background-color: var(--border-color);
+	color: var(--text-color);
+	font-size: 0.9rem;
+	cursor: pointer;
+	width: 100%;
+	/* Fill container */
+}
+
+/* ----------------------------------------------------- */
+/* Mobile Styles for Filter Page (max-width: 768px)       */
+/* ----------------------------------------------------- */
+@media (max-width: 768px) {
+
+	/* Main container adjustments */
+	main#filterMain {
+		padding: 10px;
+		margin: 10px auto;
+		max-width: 100%;
+	}
+
+	/* Filter Form: Stack items vertically */
+	#filterForm {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.filter-bar {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 10px;
+		padding: 10px;
+	}
+
+	/* Top menu items (media type, year, vote, sort) stack vertically */
+	.top-menu {
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	/* Each filter item takes full width */
+	.filter-item,
+	.range-group,
+	.dropdown-wrapper {
+		width: 100%;
+		justify-content: center;
+	}
+
+	/* Inputs: Make them full width and touch friendly */
+	.filter-item input[type="number"],
+	.range-group input {
+		width: 100%;
+		padding: 8px;
+		font-size: 1em;
+	}
+
+	/* Genre Chips Container: Allow chips to wrap & center them */
+	.genre-chips-container {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	#genreSelection {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		justify-content: center;
+		width: 100%;
+	}
+
+	.genre-chip {
+		padding: 8px 12px;
+		font-size: 0.9em;
+		min-width: 60px;
+	}
+
+	.number-input {
+		width: 100%;
+	}
+
+	.fa-calendar-alt::before {
+		padding-right: 4px;
+	}
+
+	/* Center checkboxes */
+	label {
+		display: block;
+		text-align: center;
+		margin-top: 5px;
+		font-size: 1em;
+	}
+
+	/* Filter Button: Full width and larger tap area */
+	.filter-btn {
+		width: 100%;
+		padding: 10px;
+		font-size: 1.2em;
+		margin: 10px auto;
+	}
+
+	/* Results Grid: Two columns for better spacing */
+	#filterResults {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 10px;
+	}
+
+	#filterResults p {
+		grid-column: 1 / -1;
+		text-align: center;
+		font-size: 1em;
+		padding: 15px;
+	}
+
+	/* Button container for "Load More" button */
+	.button-container {
+		width: 100%;
+		text-align: center;
+		margin-top: 15px;
+	}
+
+}

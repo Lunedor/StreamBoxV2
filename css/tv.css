@@ -1,0 +1,217 @@
+/* tv.css */
+
+.tv-main {
+	margin-top: 50px;
+}
+
+/* Main Wrapper */
+.main-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+	max-width: 1400px;
+	margin: 50px auto 5px;
+	padding: 0 20px;
+	width: 100%;
+}
+
+/* Video Player Container */
+#videoPlayerContainer {
+	flex-shrink: 0;
+	position: relative;
+	margin: auto;
+	width: 720px;
+	height: 400px;
+	height: fit-content;
+	border-radius: 4px;
+	overflow: hidden;
+	background: #000;
+	border: solid 2px darkslategray;
+}
+
+#videoPlayer {
+	width: 100%;
+	max-height: 400px;
+}
+
+/* Filter/Search Container */
+#filterSearchContainer {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+#categorySelect,
+#searchInput {
+	padding: 10px 20px;
+	border-radius: 25px;
+	border: 1px solid var(--hover-color);
+	background-color: var(--border-color);
+	color: var(--text-color);
+	font-size: 1em;
+	min-width: 200px;
+	margin-top: 15px;
+}
+
+/* Channels Container (Grid) */
+.channels-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 270px);
+	gap: 15px;
+	justify-content: center;
+	background-color: var(--background-color);
+	padding: 10px;
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	box-shadow: var(--list-shadow);
+	overflow-y: auto;
+	max-height: 275px;
+	margin: 0 30px;
+}
+
+/* Channel Card Styling */
+.channel {
+	width: 100%;
+	height: 120px;
+	background-color: var(--background-color);
+	border-radius: 12px;
+	padding: 10px;
+	box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.85), 0px 2px 4px rgba(100, 255, 218, 0.3);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	text-align: center;
+	transition: transform 0.2s, box-shadow 0.2s;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.channel:hover {
+	transform: scale(1.05);
+}
+
+.channel.playing {
+	border: 2px solid var(--hover-color);
+	box-shadow: 0 4px 12px var(--accent-color);
+	background-color: rgba(255, 152, 0, 0.1);
+	transform: scale(1.05);
+}
+
+
+/* Logo Container for fixed size */
+.logo-container {
+	width: 40px;
+	height: 40px;
+	margin-bottom: 8px;
+}
+
+.logo-container img {
+	height: 40px;
+	object-fit: contain;
+	border-radius: 50%;
+	width: 40px;
+}
+
+/* Channel Info (fixed height, ellipsis for title) */
+.channel-info {
+	width: 85%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
+	font-size: small;
+}
+
+.channel-title {
+	margin: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: var(--text-color);
+	max-width: 165px;
+}
+
+.channel-info p {
+	font-size: 0.8em;
+	margin: 0;
+	color: var(--secondary-text-color);
+}
+
+/* Source Selector Dropdown */
+.source-selector {
+	width: 90%;
+	padding: 5px;
+	margin-top: 30px;
+	border: 1px solid var(--border-color);
+	border-radius: 4px;
+	background-color: var(--background-color);
+	color: var(--text-color);
+	font-size: 0.9em;
+	position: relative;
+	z-index: 1;
+}
+
+/* Play Button using Font Awesome */
+.play-btn {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	font-size: 2em;
+	color: var(--text-color);
+	transition: color 0.3s;
+	margin-top: 5px;
+	font-size: 40px;
+}
+
+.play-btn:hover {
+	color: var(--accent-color);
+}
+
+/* Button Container for Load More */
+.button-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+.channel-details {
+	width: 100%;
+	padding: 5px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 5px;
+	margin-bottom: auto;
+}
+
+#filterBar {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	gap: 20px;
+	margin: 0 0 20px 0;
+}
+
+@media (max-width: 768px) {
+	.tv-main {
+		margin-top: 20px;
+	}
+
+	#videoPlayerContainer {
+		width: 100%;
+	}
+
+	#filterBar {
+		width: 100%;
+		gap: 5px;
+		flex-direction: column;
+		margin-top: 10px;
+	}
+
+	#categorySelect,
+	#searchInput {
+		width: 50%;
+		margin: auto;
+	}
+}

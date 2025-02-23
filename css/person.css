@@ -1,0 +1,140 @@
+/* person.css */
+
+p {
+	text-align: justify;
+}
+
+/* Person Container */
+#personContainer {
+	padding: 20px;
+	max-width: 1400px;
+	margin: 0 auto;
+	color: var(--text-color);
+	font-family: sans-serif;
+}
+
+/* Person Header Section */
+.person-header {
+	position: relative;
+	min-height: 70vh;
+	margin-bottom: 40px;
+}
+
+.person-backdrop {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 70vh;
+	background-size: cover;
+	background-position: center;
+	z-index: -1;
+	opacity: 0.3;
+}
+
+/* Person Poster and Details */
+.person-poster-container {
+	display: flex;
+	gap: 30px;
+	padding: 20px;
+	align-items: center;
+}
+
+.person-poster-image {
+	width: 300px;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.person-detail-content {
+	flex: 1;
+}
+
+.person-title-section {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	margin-bottom: 20px;
+}
+
+.person-title-section h1 {
+	font-size: 2.5em;
+	color: var(--text-color);
+}
+
+.person-overview {
+	max-width: 800px;
+	line-height: 1.6;
+	margin-bottom: 30px;
+}
+
+/* Known For Section */
+.known-for-section {
+	margin-top: 40px;
+}
+
+.known-for-section h3 {
+	font-size: 1.5em;
+	color: var(--text-color);
+	padding-bottom: 10px;
+	border-bottom: 2px solid #e50914;
+	margin-bottom: 20px;
+}
+
+/* Ensure media cards have pointer cursor */
+.media-card {
+	cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+	/* Remove the large backdrop image on mobile */
+	.person-backdrop {
+		display: none;
+	}
+
+	/* Adjust container padding for smaller screens */
+	#personContainer {
+		padding: 10px;
+		max-width: 100%;
+	}
+
+	/* Stack poster and details vertically */
+	.person-poster-container {
+		flex-direction: column;
+		gap: 10px;
+		padding: 10px;
+		align-items: center;
+	}
+
+	/* Resize the poster image */
+	.person-poster-image {
+		width: 80%;
+		max-width: 250px;
+	}
+
+	/* Center the detail content and adjust typography */
+	.person-detail-content {
+		text-align: center;
+		padding: 0 10px;
+	}
+
+	/* Adjust title size for mobile */
+	.person-title-section h1 {
+		font-size: 1.8em;
+		width: 100%;
+	}
+
+	/* Make the overview text slightly smaller and use full width */
+	.person-overview {
+		max-width: 100%;
+		font-size: 0.95em;
+		margin-bottom: 20px;
+	}
+
+	/* Adjust the Known For section heading and card sizes */
+	.known-for-section h3 {
+		font-size: 1.3em;
+		margin-bottom: 15px;
+	}
+}

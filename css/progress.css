@@ -1,0 +1,158 @@
+/* progress.css */
+
+.movie-progress-card {
+	width: 300px;
+	height: 210px;
+	background: #222;
+	border-radius: 10px;
+	overflow: hidden;
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+	transition: transform 0.3s;
+	background-color: #141414;
+}
+
+.movie-progress-card:hover {
+	transform: scale(1.03);
+}
+
+.movie-progress-card .backdrop {
+	width: 100%;
+	height: 150px;
+	background-size: cover;
+	background-position: center;
+}
+
+.movie-info {
+	padding: 10px;
+	color: #fff;
+	background: #141414;
+	cursor: pointer;
+}
+
+.movie-info h3 {
+	margin: 0 0 5px;
+	font-size: 1.2em;
+}
+
+.movie-info .progress-bar {
+	height: 8px;
+	background: #555;
+	border-radius: 4px;
+	overflow: hidden;
+	margin: 5px 0;
+}
+
+.movie-info .progress-fill {
+	height: 100%;
+	background: #e50914;
+	width: 0;
+	transition: width 0.3s;
+}
+
+.progress-bottom {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px 0px 5px 10px;
+}
+
+.reset-progress-btn {
+	visibility: visible;
+	cursor: pointer;
+}
+
+#movieProgressContainer {
+	margin: 20px;
+}
+
+#tvFixedSections {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	margin: 20px;
+}
+
+.tv-progress-card {
+	width: 260px;
+	height: 260px;
+	text-align: center;
+	border-radius: 10px;
+	overflow: hidden;
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+	transition: transform 0.3s;
+	background-color: var(--background-color);
+}
+
+.tv-progress-card:hover {
+	transform: scale(1.03);
+}
+
+.tv-progress-img {
+	width: 100%;
+	height: 150px;
+	background-size: cover;
+	background-position: center;
+}
+
+.tv-progress-info {
+	padding: 10px;
+}
+
+.tv-progress-info h4 {
+	margin: 0 0 5px;
+	font-size: 1.2em;
+	line-height: 1.3em;
+	max-height: 1.3em;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.tv-progress-info p {
+	margin: 0 0 5px;
+	font-size: 0.9em;
+}
+
+.tv-progress-info .progress-bar {
+	height: 8px;
+	background: #555;
+	border-radius: 4px;
+	overflow: hidden;
+	margin: 5px 0;
+}
+
+.tv-progress-info .progress-fill {
+	height: 100%;
+	background: #e50914;
+	width: 0;
+	transition: width 0.3s;
+}
+
+#continueContainer,
+#upNextContainer,
+#waitlistContainer,
+#movieProgressList {
+	gap: 10px;
+	border-top: 1px solid var(--border-color);
+	overflow-x: auto;
+	padding: 15px 0;
+	background-color: var(--background-color);
+	border-radius: 8px 8px 0 0;
+	border: none;
+	display: grid;
+	user-select: none;
+	grid-auto-flow: column;
+	overflow-y: auto;
+	justify-content: left;
+}
+
+#waitlistContainer .tv-progress-card {
+	zoom: 0.6;
+}
