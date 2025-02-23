@@ -6,7 +6,7 @@ New Version of StreamBox Project.
 This project is a web application for tracking movies and TV shows. Users can add items to their watchlist, watched list, and track the current watching state for TV shows. 
 It uses IndexedDB to store data, so there is no need for a login process, but I highly recommend backing up your data frequently.
 
-[Demo](https://streambox.x10.mx)
+[Demo](https://lunedor.x10.mx)
 
 ## Features
 
@@ -31,7 +31,7 @@ It uses IndexedDB to store data, so there is no need for a login process, but I 
     cd StreamBox
     ```
 
-2. Open apiKey.js and write your TMDB API key on the first line.
+2. Open /js/apiKey.js and write your TMDB API key on the first line.
 3. Open the `index.html` file in your web browser to start the application.
 
 ## Usage
