@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>StreamBox</title>
+      <link rel="stylesheet" href="css/common.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <link rel="stylesheet" href="css/carousel.css" />
+      <link rel="stylesheet" href="css/progress.css" />
+      <link rel="stylesheet" href="css/search.css" />
+      <!-- Font Awesome for icons -->
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+      <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+   </head>
+   <body>
+      <header class="site-header">
+         <div class="logo">
+            <button class="hamburger-menu" id="hamburgerMenu" onclick="">
+            <i class="fa-solid fa-bars"></i></button>
+            <img src="logo-192x192.png" title="StreamBox">StreamBox
+         </div>
+         <div class="search-container">
+            <button id="filterBtn" title="Filter"><i class="fa-solid fa-filter"></i></button>
+            <input
+               type="text"
+               id="searchInput"
+               placeholder="Search movies, TV shows, persons..."
+               autocomplete="off"/>
+            <button id="searchBtn" title="Search"><i class="fa fa-search"></i></button>
+         </div>
+         <div class="toggle-container">
+            <img class="live-tv" width="48" height="48" src="https://img.icons8.com/nolan/64/tv.png" alt="television-emoji" onclick="window.location.href='tv.html'"/>	
+            <button class="toggle-btn active" data-type="movie" aria-label="Movie">
+            <i class="fa-solid fa-film"></i>
+            </button>
+            <button class="toggle-btn" data-type="tv" aria-label="TV">
+            <i class="fa-solid fa-tv"></i>
+            </button>
+         </div>
+         <!-- Dropdown Menu (hidden by default) -->
+         <div class="hamburger-dropdown" id="hamburgerDropdown">
+            <button id="themeToggleBtn">Switch to Light Theme</button>
+            <button id="exportBackupBtn">Export Backup</button>
+            <label for="importBackupInput" class="import-btn">Import Backup</label>
+            <input type="file" id="importBackupInput" accept="application/json" style="display:none;">
+         </div>
+      </header>
+      <main>
+         <!-- Search Modal -->
+         <div id="searchModal" class="modal hidden">
+            <div class="modal-header">
+               <h2>Search Results</h2>
+               <button id="closeSearchModal" title="Close" class="close-btn">
+               <i class="fa-solid fa-times-circle"></i>
+               </button>
+            </div>
+            <div class="modal-tabs">
+               <button class="modal-tab-btn active" data-tab="movies">Movies</button>
+               <button class="modal-tab-btn" data-tab="tv">TV Shows</button>
+               <button class="modal-tab-btn" data-tab="person">Persons</button>
+            </div>
+            <div class="modal-content vertical-list">
+               <div id="modalResultsMovies" class="modal-tab-content vertical-list active"></div>
+               <div id="modalResultsTV" class="modal-tab-content vertical-list"></div>
+               <div id="modalResultsPerson" class="modal-tab-content vertical-list"></div>
+            </div>
+         </div>
+         <!-- Trending Carousel -->
+         <section id="trendingCarousel" class="carousel-section">
+            <div id="carouselContainer" class="carousel-container"></div>
+            <div class="indicator" id="circleIndicator">
+               <i class="fa-solid fa-play"></i>
+               <svg width="40" height="40">
+                  <!-- Background circle -->
+                  <circle cx="20" cy="20" r="18" class="progress-background"></circle>
+                  <!-- Progress circle (on top) -->
+                  <circle cx="20" cy="20" r="18" class="progress-circle"></circle>
+               </svg>
+            </div>
+            </div>
+            <div class="carousel-arrows">
+               <button id="carouselPrev" title="Previous"><i class="fa fa-chevron-left"></i></button>
+               <button id="carouselNext" title="Next"><i class="fa fa-chevron-right"></i></button>
+            </div>
+            <div id="carouselIndicators" class="carousel-indicators"></div>
+         </section>
+         <!-- Movies Section -->
+         <div id="movieProgressContainer"></div>
+         <section id="moviesSection" class="main-section active">
+            <div class="sub-tabs" id="moviesSubTabs"></div>
+            <div class="sub-content" id="moviesContent"></div>
+         </section>
+         <!-- TV Section -->
+         <div id="tvFixedSections"></div>
+         <section id="tvSection" class="main-section">
+            <div class="sub-tabs" id="tvSubTabs"></div>
+            <div class="sub-content" id="tvContent"></div>
+         </section>
+         <!-- Place this at the end of the body, for example in index.html -->
+         <button id="goTopBtn" title="Go to top"><i class="fa-solid fa-circle-up"></i></button>
+      </main>
+      <!-- Dexie for IndexedDB -->
+      <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+      <!-- Our JS files -->
+      <script src="js/common.js" defer></script>
+      <script src="js/apiKey.js" defer></script>
+      <script src="js/api.js" defer></script>
+      <script src="js/storage.js" defer></script>
+      <script src="js/main.js" defer></script>
+      <script src="js/carousel.js" defer></script>
+      <script src="js/progressui.js" defer></script>
+      <script src="js/search.js" defer></script>
+   </body>
+</html>

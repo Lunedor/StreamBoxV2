@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>StreamBox Live TV</title>
+      <!-- Global common styles (with CSS variables, typography, etc.) -->
+      <link rel="stylesheet" href="css/common.css" />
+      <!-- TV page specific styles -->
+      <link rel="stylesheet" href="css/tv.css" />
+      <!-- Font Awesome for icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+   </head>
+   <body>
+      <header>
+         <button class="back-btn" onclick="window.history.back()" aria-label="Go back">
+         <i class="fas fa-arrow-left"></i>
+         </button>
+         <div class="logo">
+            <img src="logo-192x192.png" alt="StreamBox" />
+            StreamBox
+         </div>
+         <button class="home-btn" onclick="window.location.href='index.html'" aria-label="Go home">
+         <i class="fas fa-home"></i>
+         </button>
+      </header>
+      <main class="tv-main">
+         <!-- Video Player Section at the top -->
+         <section class="video-section">
+            <div id="videoPlayerContainer">
+               <video id="videoPlayer" controls></video>
+            </div>
+         </section>
+         <!-- Filter Bar and Channel Grid -->
+         <section class="channels-section">
+            <!-- Filter Bar -->
+            <div id="filterBar" class="filter-bar">
+               <select id="categorySelect">
+                  <option value="all">All Categories</option>
+               </select>
+               <input type="text" id="searchInput" placeholder="Search channels..." />
+            </div>
+            <!-- Channel Grid -->
+            <div id="channelsContainer" class="channels-container">
+               <!-- Channel cards will be rendered here -->
+               <p>Loading channels…</p>
+            </div>
+            <!-- Load More Button -->
+            <div class="button-container" id="channelsButtonContainer">
+               <button id="loadMoreChannelsBtn" class="load-more-btn" style="display: none;">Load More Channels</button>
+            </div>
+         </section>
+         <!-- Go-to-Top Button -->
+         <button id="goTopBtn" title="Go to top" class="go-top-btn"><i class="fa-solid fa-circle-up"></i></button>
+      </main>
+      <!-- Include HLS.js and your necessary scripts (in order) -->
+      <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+      <script src="js/common.js"></script>
+      <script src="js/tv.js"></script>
+   </body>
+</html>
